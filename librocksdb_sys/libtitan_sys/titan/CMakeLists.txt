@@ -41,6 +41,8 @@ file(GLOB TEST_SOURCES src/*test.cc)
 list(REMOVE_ITEM SOURCES ${TEST_SOURCES})
 
 add_library(titan STATIC ${SOURCES} $<TARGET_OBJECTS:titan_build_version>)
+target_compile_options(titan PRIVATE -Wno-error=unused-but-set-variable)
+target_compile_options(titan PRIVATE -Wno-error=deprecated-copy)
 
 option(WITH_TITAN_TESTS "Build with tests." ON)
 option(WITH_TITAN_TOOLS "Build with tools." ON)

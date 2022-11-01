@@ -814,6 +814,8 @@ if(WIN32)
   endif()
 endif()
 
+target_compile_options(${ROCKSDB_STATIC_LIB} PRIVATE -Wno-error=deprecated-copy -Wno-error=unused-but-set-variable)
+
 option(WITH_JNI "build with JNI" OFF)
 if(WITH_JNI OR JNI)
   message(STATUS "JNI library is enabled")
